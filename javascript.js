@@ -11,6 +11,9 @@ while (i < columnNumber) {
     gridContainer.appendChild(currentColumn);
     while (j < rowNumber) {
         let currentRow = document.createElement('div');
+        currentRow.addEventListener('mouseover', function() {
+            currentRow.classList.add('hovered');
+        });
         currentRow.classList.add('row');
         currentColumn.appendChild(currentRow);
         j++;

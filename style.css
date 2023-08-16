@@ -11,16 +11,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 5px solid black;
+    border: 1px solid black;
     height: 400px;
     width: 400px;
 }
 .column {
     flex: 1;
-    border: 1px solid green;
     display: flex;
 }
 .row {
     flex:1;
-    border: 1px solid red;
+    border: 1px solid black;
+}
+.hovered{
+    background-color: black;
 }
