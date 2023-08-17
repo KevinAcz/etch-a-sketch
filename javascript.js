@@ -36,12 +36,12 @@ const inputButton = document.querySelector('#input-btn');
 const resetButton = document.querySelector('#reset-btn');
 
 inputButton.addEventListener('click', function() {
-    columnNumber = prompt('Columnas');
-    while (isNaN(columnNumber) || columnNumber > 100) {
+    columnNumber = prompt('Choose number of columns: ');
+    while (isNaN(columnNumber) || columnNumber > 100 || columnNumber <= 0) {
         columnNumber = prompt('Not a valid number! Enter columns between 1 to 100: ');
     }
-    rowNumber = prompt('Filas');
-    while (isNaN(rowNumber) || rowNumber > 100) {
+    rowNumber = prompt('Choose number of rows: ');
+    while (isNaN(rowNumber) || rowNumber > 100 || columnNumber <= 0) {
         rowNumber = prompt('Not a valid number! Enter rows between 1 to 100: ');
     }
 
