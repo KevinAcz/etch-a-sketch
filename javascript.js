@@ -5,6 +5,13 @@ let columnNumber = 16;
 let rowNumber = 16;
 createGrid(columnNumber, rowNumber);
 
+function randomRgb () { 
+    let r = Math.floor( Math.random() * 256);
+    let g = Math.floor( Math.random() * 256);
+    let b= Math.floor( Math.random() * 256);
+    return ('rgb'+'('+r+','+g+','+b+')');
+}
+
 function createGrid (columnNumber, rowNumber) {
     let i = 0;
     let j = 0;
@@ -15,7 +22,13 @@ function createGrid (columnNumber, rowNumber) {
         while (j < rowNumber) {
             let currentRow = document.createElement('div');
             currentRow.addEventListener('mouseover', function() {
-                currentRow.classList.add('hovered');
+                if (!rainbowFlag) {
+                currentRow.classList.add('hovered-black');
+                currentRow.removeAttribute('style'); 
+                //being inline style, it overwrites black, so removing can deal with that
+            } else {
+                currentRow.setAttribute('style',`background-color: ${randomRgb()}`);
+            }
             });
             currentRow.classList.add('row');
             currentColumn.appendChild(currentRow);
@@ -34,6 +47,17 @@ function deleteGrid() {
 
 const inputButton = document.querySelector('#input-btn');
 const resetButton = document.querySelector('#reset-btn');
+const blackButton = document.querySelector('#black-color-btn');
+const rainbowButton = document.querySelector('#rainbow-color-btn');
+let rainbowFlag = 0;
+
+rainbowButton.addEventListener('click', function() {
+    rainbowFlag = 1;
+});
+
+blackButton.addEventListener('click', function() {
+    rainbowFlag = 0;
+})
 
 inputButton.addEventListener('click', function() {
     columnNumber = prompt('Choose number of columns: ');
